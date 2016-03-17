@@ -6,7 +6,6 @@
   "scripts": {
     "preversion": "npm run clean && npm run check",
     "postversion": "git push && git push --tags && npm run clean && npm run docs:publish",
-    "install": "webpack",
     "lint": "eslint src/**",
     "check": "npm run lint && npm run test:all",
     "test": "npm run lint && npm run test:only",
@@ -75,6 +74,7 @@
     "jsdom": "^6.1.0",
     "json-loader": "0.5.4",
     "mocha": "^2.4.5",
+    "react": "0.14.7",
     "rimraf": "^2.5.1",
     "sinon": "^1.15.4",
     "webpack": "1.12.14"
