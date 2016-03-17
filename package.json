@@ -2,16 +2,13 @@
   "name": "enzyme",
   "version": "2.1.0",
   "description": "JavaScript Testing utilities for React",
-  "main": "build",
+  "main": "dist/enzyme.js",
   "scripts": {
-    "prepublish": "npm run clean && npm run build",
     "preversion": "npm run clean && npm run check",
     "postversion": "git push && git push --tags && npm run clean && npm run docs:publish",
-    "version": "npm run build",
-    "clean": "rimraf build",
+    "install": "webpack",
     "lint": "eslint src/**",
     "check": "npm run lint && npm run test:all",
-    "build": "babel src --out-dir build",
     "test": "npm run lint && npm run test:only",
     "test:only": "mocha --require withDom.js --compilers js:babel-core/register --recursive test/*.js --reporter dot",
     "test:single": "mocha --require withDom.js --compilers js:babel-core/register --watch --reporter dot",
@@ -50,6 +47,7 @@
   "author": "Leland Richardson <leland.richardson@airbnb.com>",
   "license": "MIT",
   "dependencies": {
+    "babel-loader": "6.2.4",
     "cheerio": "^0.20.0",
     "is-subset": "^0.1.1",
     "lodash": "^4.0.0",
@@ -75,9 +73,11 @@
     "gitbook-cli": "^1.0.1",
     "istanbul": "^1.0.0-alpha.2",
     "jsdom": "^6.1.0",
+    "json-loader": "0.5.4",
     "mocha": "^2.4.5",
     "rimraf": "^2.5.1",
-    "sinon": "^1.15.4"
+    "sinon": "^1.15.4",
+    "webpack": "1.12.14"
   },
   "peerDependencies": {
     "react": "0.13.x || 0.14.x || 15.* || 15.0.0-rc.1"
